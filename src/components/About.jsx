@@ -1,3 +1,4 @@
+import teamPhoto from '../assets/Software_developer.webp'
 import './About.css'
 
 export default function About(){
@@ -27,10 +28,12 @@ export default function About(){
         </p>
 
         <div className="about-panel">
-          <div className="about-panel-visual" aria-hidden="true">
-            <div className="about-panel-grid">
-              {Array.from({ length: 6 }).map((_, i) => <span key={i}/>)}
-            </div>
+          <div className="about-panel-visual">
+            <img
+              className="about-panel-image"
+              src={teamPhoto}
+              alt="The Solid5 team at their Harare office"
+            />
           </div>
           <div className="about-panel-info">
             <p className="about-panel-label">SOLID5 AGENCY</p>

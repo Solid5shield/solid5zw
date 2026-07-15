@@ -6,6 +6,8 @@ import elandsTechImg from '../assets/portfolio/elands-tech.png'
 import solidfloImg from '../assets/portfolio/solidflo.png'
 import solid5Img from '../assets/portfolio/solid5.png'
 import kraalAppImg from '../assets/portfolio/smartstruct.png'
+import Smartstruct from '../assets/portfolio/smartstruct.png'
+import afrivoucherImg from '../assets/portfolio/afrivoucher.png'
 import solidfloAppImg from '../assets/portfolio/solidflo.png'
 import './Portfolio.css'
 
@@ -16,7 +18,8 @@ const PROJECTS = [
   { label: 'Elands Tech', type: 'Web', url: 'https://elandstech.co.za', image: elandsTechImg },
   { label: 'SolidFlo', type: 'Web', url: 'https://solidflo.co.za', image: solidfloImg },
   { label: 'Solid5', type: 'Web', url: 'https://solid5.co.za', image: solid5Img },
-  { label: 'Kraal App', type: 'Mobile', image: kraalAppImg },
+  { label: 'AfriVoucher', type: 'Web', url: 'https://afrivoucher.com', image: afrivoucherImg },
+  { label: 'Smartstruct', type: 'Web', url: 'https://smartstruct.com', image: Smartstruct },
   { label: 'SolidFlo App', type: 'Mobile', image: solidfloAppImg },
 ]
 
