@@ -5,6 +5,7 @@ import Services from './components/Services.jsx'
 import About from './components/About.jsx'
 import Portfolio from './components/Portfolio.jsx'
 import Footer from './components/Footer.jsx'
+import CookieConsent from './components/CookieConsent.jsx'
 
 export default function App(){
   return (
@@ -18,6 +19,7 @@ export default function App(){
         <Portfolio />
       </main>
       <Footer />
+      <CookieConsent />
     </>
   )
 }

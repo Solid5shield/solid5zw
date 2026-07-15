@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import kraalMarketImg from '../assets/portfolio/kraal-market.png'
 import gerboAiImg from '../assets/portfolio/gerbo-ai.png'
 import videolidImg from '../assets/portfolio/videolid.png'
@@ -20,6 +20,8 @@ const PROJECTS = [
   { label: 'SolidFlo App', type: 'Mobile', image: solidfloAppImg },
 ]
 
+const AUTO_SLIDE_MS = 3800
+
 // Layered background: dark gradient sits on top of the image so text stays readable.
 const cardBg = (image, strength = 0.65) => ({
   backgroundImage: `linear-gradient(180deg, rgba(10,18,16,${strength - 0.3}), rgba(10,18,16,${strength})), url(${image})`,
@@ -27,21 +29,37 @@ const cardBg = (image, strength = 0.65) => ({
   backgroundPosition: 'center',
 })
 
+// Position of each visible slot relative to the active card.
+const SLOTS = [
+  { offset: -2, className: 'work-card--far-left' },
+  { offset: -1, className: 'work-card--left' },
+  { offset: 0, className: 'work-card--active' },
+  { offset: 1, className: 'work-card--right' },
+  { offset: 2, className: 'work-card--far-right' },
+]
+
 export default function Portfolio(){
   const [index, setIndex] = useState(0)
+  const [paused, setPaused] = useState(false)
+  const timerRef = useRef(null)
+
   const go = (dir) => setIndex(i => (i + dir + PROJECTS.length) % PROJECTS.length)
 
-  const left = PROJECTS[(index - 1 + PROJECTS.length) % PROJECTS.length]
-  const active = PROJECTS[index]
-  const right = PROJECTS[(index + 1) % PROJECTS.length]
+  useEffect(() => {
+    if (paused) return
+    timerRef.current = setInterval(() => go(1), AUTO_SLIDE_MS)
+    return () => clearInterval(timerRef.current)
+  }, [paused])
 
-  const ActiveTag = active.url ? 'a' : 'div'
-  const activeProps = active.url
-    ? { href: active.url, target: '_blank', rel: 'noopener noreferrer' }
-    : {}
+  const project = (offset) => PROJECTS[(index + offset + PROJECTS.length) % PROJECTS.length]
 
   return (
-    <section className="work" id="work">
+    <section
+      className="work"
+      id="work"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+    >
       <div className="container work-top">
         <ul className="work-features">
           <li>+ TOP PROJECTS</li>
@@ -54,33 +72,36 @@ export default function Portfolio(){
       <div className="work-stage">
         <button className="work-arrow work-arrow--left" onClick={() => go(-1)} aria-label="Previous project">‹</button>
 
-        <div
-          className="work-card work-card--side work-card--left"
-          style={cardBg(left.image, 0.8)}
-          aria-hidden="true"
-        >
-          <span>{left.label}</span>
-        </div>
+        {SLOTS.map(({ offset, className }) => {
+          const p = project(offset)
+          const isActive = offset === 0
+          const Tag = isActive && p.url ? 'a' : 'div'
+          const tagProps = isActive && p.url
+            ? { href: p.url, target: '_blank', rel: 'noopener noreferrer' }
+            : {}
 
-        <ActiveTag
-          className="work-card work-card--active"
-          style={cardBg(active.image, 0.55)}
-          {...activeProps}
-        >
-          <span className="work-card-type">{active.type}</span>
-          <span className="work-card-label">{active.label}</span>
-          <span className="work-card-tap">
-            {active.url ? 'VISIT SITE ↗' : 'MOBILE APP'}
-          </span>
-        </ActiveTag>
-
-        <div
-          className="work-card work-card--side work-card--right"
-          style={cardBg(right.image, 0.8)}
-          aria-hidden="true"
-        >
-          <span>{right.label}</span>
-        </div>
+          return (
+            <Tag
+              key={`${index}-${offset}`}
+              className={`work-card ${className}`}
+              style={cardBg(p.image, isActive ? 0.55 : 0.82)}
+              aria-hidden={!isActive}
+              {...tagProps}
+            >
+              {isActive ? (
+                <>
+                  <span className="work-card-type">{p.type}</span>
+                  <span className="work-card-label">{p.label}</span>
+                  <span className="work-card-tap">
+                    {p.url ? 'VISIT SITE ↗' : 'MOBILE APP'}
+                  </span>
+                </>
+              ) : (
+                <span className="work-card-label--dim">{p.label}</span>
+              )}
+            </Tag>
+          )
+        })}
 
         <button className="work-arrow work-arrow--right" onClick={() => go(1)} aria-label="Next project">›</button>
       </div>
@@ -97,8 +118,8 @@ export default function Portfolio(){
       </div>
 
       <div className="container work-footer">
-        <span>{PROJECTS[(index - 1 + PROJECTS.length) % PROJECTS.length].label}</span>
-        <span>{PROJECTS[(index + 1) % PROJECTS.length].label} ›</span>
+        <span>{project(-1).label}</span>
+        <span>{project(1).label} ›</span>
       </div>
     </section>
   )
