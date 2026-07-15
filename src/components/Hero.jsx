@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { IconInstagram, IconLinkedIn, IconX } from './icons.jsx'
 import registerImg from '../assets/register.jpeg'
-import webDevImg from '../assets/software_developer.webp'
+import webDevImg from '../assets/Software_developer.webp'
 import mobileAppImg from '../assets/mobile-app.jpeg'
 import './Hero.css'
 
