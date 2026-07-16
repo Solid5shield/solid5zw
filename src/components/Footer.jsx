@@ -6,7 +6,7 @@ export default function Footer(){
     <footer className="footer" id="contact">
       <div className="container footer-inner">
         <div>
-          <img src={logo} alt="Solid5 logo" />
+          <img src={logo} width="180" alt="Solid5 logo" />
           <p className="footer-tag">CIPZ company registration, web &amp; mobile app development — Zimbabwe.</p>
         </div>
 

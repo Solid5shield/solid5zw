@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { DotLottieReact } from '@lottiefiles/dotlottie-react'
 import { IconInstagram, IconLinkedIn, IconX } from './icons.jsx'
 import registerImg from '../assets/register.jpeg'
 import webDevImg from '../assets/Software_developer.webp'
@@ -16,6 +17,8 @@ const SLIDES = [
     prevLabel: 'Mobile App Development',
     nextLabel: 'Web Development',
     cta: 'REGISTER MY COMPANY',
+    // paste your LottieFiles URL here
+    lottie: 'https://lottie.host/af83ffeb-3a73-4f6b-85b3-1729dd2aadce/K2wZD99FFZ.lottie',
   },
   {
     image: webDevImg,
@@ -26,6 +29,7 @@ const SLIDES = [
     price: '$450',
     prevLabel: 'Company Registration',
     nextLabel: 'Mobile App Development',
+    lottie: 'https://lottie.host/YOUR-WEBDEV-ANIMATION.lottie',
   },
   {
     image: mobileAppImg,
@@ -36,6 +40,7 @@ const SLIDES = [
     price: '$900',
     prevLabel: 'Web Development',
     nextLabel: 'Company Registration',
+    lottie: 'https://lottie.host/YOUR-MOBILEAPP-ANIMATION.lottie',
   },
 ]
 
@@ -70,6 +75,8 @@ export default function Hero(){
 
       <button className="hero-arrow hero-arrow--left" onClick={() => go(-1)} aria-label="Previous slide">‹</button>
       <button className="hero-arrow hero-arrow--right" onClick={() => go(1)} aria-label="Next slide">›</button>
+
+      
 
       <div className="hero-body container">
         <div className="hero-copy">

@@ -5,7 +5,7 @@ export default function About(){
   return (
     <section className="about" id="about">
       <div className="about-banner" aria-hidden="true">
-        <span>SOLID5</span>
+        <span>SOLID5 AGENCY</span>
       </div>
 
       <div className="about-body container">

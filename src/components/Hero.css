@@ -180,7 +180,14 @@
   gap: 20px;
   flex-wrap: wrap;
 }
-
+.hero-arrow-lottie {
+  position: absolute;
+  left: 2rem;           
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none; 
+  z-index: 2;
+}
 .hero-quicklinks {
   display: flex;
   gap: 26px;
