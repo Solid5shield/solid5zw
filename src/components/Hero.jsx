@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import { DotLottieReact } from '@lottiefiles/dotlottie-react'
+import CookieSettingsButton from './CookieSettingsButton.jsx'
+import CookieConsent from './CookieConsent.jsx'
 import { IconInstagram, IconLinkedIn, IconX } from './icons.jsx'
 import registerImg from '../assets/register.jpeg'
 import webDevImg from '../assets/Software_developer.webp'
@@ -17,7 +19,6 @@ const SLIDES = [
     prevLabel: 'Mobile App Development',
     nextLabel: 'Web Development',
     cta: 'REGISTER MY COMPANY',
-    // paste your LottieFiles URL here
     lottie: 'https://lottie.host/af83ffeb-3a73-4f6b-85b3-1729dd2aadce/K2wZD99FFZ.lottie',
   },
   {
@@ -49,7 +50,7 @@ const QUICK_LINKS = ['Packages', 'Process', 'Work', 'Support']
 export default function Hero(){
   const [index, setIndex] = useState(0)
   const slide = SLIDES[index]
-
+  const [cookiesOpen, setCookiesOpen] = useState(false)
   const go = (dir) => {
     setIndex(i => (i + dir + SLIDES.length) % SLIDES.length)
   }
@@ -72,7 +73,14 @@ export default function Hero(){
         <a href="#" aria-label="LinkedIn"><IconLinkedIn /></a>
         <a href="#" aria-label="X / Twitter"><IconX /></a>
       </div>
-
+       <CookieSettingsButton
+        isOpen={cookiesOpen}
+        onToggle={() => setCookiesOpen(o => !o)}
+      />
+      <CookieConsent
+        isOpen={cookiesOpen}
+        onClose={() => setCookiesOpen(false)}
+      />
       <button className="hero-arrow hero-arrow--left" onClick={() => go(-1)} aria-label="Previous slide">‹</button>
       <button className="hero-arrow hero-arrow--right" onClick={() => go(1)} aria-label="Next slide">›</button>
 

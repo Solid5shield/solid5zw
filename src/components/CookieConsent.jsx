@@ -1,37 +1,119 @@
-import { useState, useEffect } from 'react'
-import './CookieConsent.css'
+import { useState, useEffect } from "react";
+import "./CookieConsent.css";
 
-const STORAGE_KEY = 'solid5-cookie-consent'
+export default function CookieConsent({ isOpen, onClose }) {
+  const [shouldRender, setShouldRender] = useState(isOpen);
+  const [prefs, setPrefs] = useState({
+    necessary: true,
+    analytics: true,
+    marketing: false,
+  });
 
-export default function CookieConsent(){
-  const [visible, setVisible] = useState(false)
-
+  // Keep it mounted briefly after close so the scale/fade-out can play
   useEffect(() => {
-    const saved = localStorage.getItem(STORAGE_KEY)
-    if (!saved) setVisible(true)
-  }, [])
+    if (isOpen) setShouldRender(true);
+    else {
+      const t = setTimeout(() => setShouldRender(false), 250);
+      return () => clearTimeout(t);
+    }
+  }, [isOpen]);
 
-  const respond = (choice) => {
-    localStorage.setItem(STORAGE_KEY, choice)
-    setVisible(false)
-  }
+  if (!shouldRender) return null;
 
-  if (!visible) return null
+  const togglePref = (key) => {
+    if (key === "necessary") return;
+    setPrefs((p) => ({ ...p, [key]: !p[key] }));
+  };
+
+  const savePrefs = (values) => {
+    localStorage.setItem("cookie-consent", JSON.stringify(values));
+    onClose();
+  };
+
+  const acceptAll = () =>
+    savePrefs({ necessary: true, analytics: true, marketing: true });
+  const rejectAll = () =>
+    savePrefs({ necessary: true, analytics: false, marketing: false });
+  const saveChoices = () => savePrefs(prefs);
 
   return (
-    <div className="cookie-banner" role="dialog" aria-label="Cookie consent">
-      <p className="cookie-text">
-        We use cookies to improve your experience on solid5.co.zw.
-        By continuing, you agree to our use of cookies.
-      </p>
-      <div className="cookie-actions">
-        <button className="cookie-btn cookie-btn--decline" onClick={() => respond('declined')}>
-          Decline
+    <div
+      className={`cookie-consent-overlay ${isOpen ? "is-open" : ""}`}
+      onClick={onClose}
+    >
+      <div
+        className={`cookie-consent-panel ${isOpen ? "is-open" : ""}`}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button
+          className="cookie-consent-close"
+          aria-label="Close"
+          onClick={onClose}
+        >
+          ×
         </button>
-        <button className="cookie-btn cookie-btn--accept" onClick={() => respond('accepted')}>
-          Accept
-        </button>
+
+        <h2>Cookie Preferences</h2>
+        <p>
+          We use cookies to improve your experience, analyse traffic, and
+          personalise content. Choose which categories you're happy with.
+        </p>
+
+        <div className="cookie-consent-options">
+          <label className="cookie-consent-row">
+            <div>
+              <strong>Necessary</strong>
+              <p>Required for the site to function. Always on.</p>
+            </div>
+            <input type="checkbox" checked disabled />
+          </label>
+
+          <label className="cookie-consent-row">
+            <div>
+              <strong>Analytics</strong>
+              <p>Helps us understand how visitors use the site.</p>
+            </div>
+            <input
+              type="checkbox"
+              checked={prefs.analytics}
+              onChange={() => togglePref("analytics")}
+            />
+          </label>
+
+          <label className="cookie-consent-row">
+            <div>
+              <strong>Marketing</strong>
+              <p>Used to show you relevant ads and offers.</p>
+            </div>
+            <input
+              type="checkbox"
+              checked={prefs.marketing}
+              onChange={() => togglePref("marketing")}
+            />
+          </label>
+        </div>
+
+        <div className="cookie-consent-actions">
+          <button
+            className="cookie-consent-btn cookie-consent-btn--ghost"
+            onClick={rejectAll}
+          >
+            Reject All
+          </button>
+          <button
+            className="cookie-consent-btn cookie-consent-btn--ghost"
+            onClick={saveChoices}
+          >
+            Save Choices
+          </button>
+          <button
+            className="cookie-consent-btn cookie-consent-btn--solid"
+            onClick={acceptAll}
+          >
+            Accept All
+          </button>
+        </div>
       </div>
     </div>
-  )
+  );
 }
