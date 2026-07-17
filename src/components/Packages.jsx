@@ -1,5 +1,5 @@
 import './Packages.css'
-
+import Constellation from './Constellation.jsx'
 const PACKAGES = [
   {
     color: 'teal',
@@ -44,7 +44,11 @@ const PACKAGES = [
 export default function Packages(){
   return (
     <section className="packages" id="packages">
+      <div className="packages-constellation" aria-hidden="true">
+        <Constellation />
+      </div>
       <div className="container">
+        
         <p className="packages-eyebrow">CIPZ Company Registration</p>
         <h2 className="packages-heading">Our Packages</h2>
 
@@ -64,6 +68,7 @@ export default function Packages(){
 
         <a href="#contact" className="packages-cta">GET STARTED — CIPZ REGISTRATION</a>
       </div>
+     
     </section>
   )
 }

@@ -6,6 +6,7 @@ import { IconInstagram, IconLinkedIn, IconX } from './icons.jsx'
 import registerImg from '../assets/register.jpeg'
 import webDevImg from '../assets/Software_developer.webp'
 import mobileAppImg from '../assets/mobile-app.jpeg'
+import Constellation from './Constellation.jsx'
 import './Hero.css'
 
 const SLIDES = [
@@ -67,7 +68,7 @@ export default function Hero(){
         />
         <div className="hero-bg-overlay" />
       </div>
-
+ 
       <div className="hero-social">
         <a href="#" aria-label="Instagram"><IconInstagram /></a>
         <a href="#" aria-label="LinkedIn"><IconLinkedIn /></a>

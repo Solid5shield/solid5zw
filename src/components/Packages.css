@@ -2,8 +2,18 @@
   background: var(--black);
   padding: 90px 0;
   border-bottom: 1px solid var(--line);
+   position: relative; 
+  overflow: hidden;  
 }
-
+.packages-constellation{
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 580px;
+  height: 100%;
+  pointer-events: none; 
+  z-index: 0;
+}
 .packages-eyebrow{
   font-family: var(--mono);
   font-size: 12px;
@@ -36,7 +46,13 @@
   border-bottom: 1px solid var(--line);
 }
 .package-row:last-child{ border-bottom: none; padding-bottom: 0; }
+@media (max-width: 1300px){
+  .packages-constellation{ width: 380px; height: 380px; }
+}
 
+@media (max-width: 1100px){
+  .packages-constellation{ display: none; }
+}
 .package-icon{
   flex-shrink: 0;
   width: 52px;
