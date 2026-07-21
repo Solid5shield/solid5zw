@@ -9,6 +9,8 @@ import kraalAppImg from '../assets/portfolio/smartstruct.png'
 import Smartstruct from '../assets/portfolio/smartstruct.png'
 import afrivoucherImg from '../assets/portfolio/afrivoucher.png'
 import solidfloAppImg from '../assets/portfolio/solidflo.png'
+import starGlassImg from '../assets/portfolio/5starglassdesigners.png'
+import alexUpholsteryImg from '../assets/portfolio/alex-upholstery.png'
 import './Portfolio.css'
 
 const PROJECTS = [
@@ -20,6 +22,8 @@ const PROJECTS = [
   { label: 'Solid5', type: 'Web', url: 'https://solid5.co.za', image: solid5Img },
   { label: 'AfriVoucher', type: 'Web', url: 'https://afrivoucher.com', image: afrivoucherImg },
   { label: 'Smartstruct', type: 'Web', url: 'https://smartstruct.com', image: Smartstruct },
+  { label: '5 Star Glass Designers', type: 'Web', url: 'https://5starglassdesigners.com', image: starGlassImg },
+  { label: 'Alex Upholstery', type: 'Web', url: 'https://alex-upholstery.co.za', image: alexUpholsteryImg },
   { label: 'SolidFlo App', type: 'Mobile', image: solidfloAppImg },
 ]
 
