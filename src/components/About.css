@@ -7,7 +7,7 @@
 .about-banner{
   height: 220px;
   display: flex;
-  align-items: center;
+  justify-content: center;
   padding: 0 48px;
   background:
     linear-gradient(90deg, rgba(10,18,16,0.75), rgba(10,18,16,0.35)),
@@ -19,6 +19,7 @@
   font-family: var(--display);
   font-size: clamp(46px, 8vw, 84px);
   color: rgba(244,241,234,0.9);
+  text-align: center;
   letter-spacing: 0.02em;
 }
 

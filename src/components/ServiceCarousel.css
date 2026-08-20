@@ -1,0 +1,164 @@
+.svc-carousel {
+  margin-bottom: 60px;
+}
+
+.svc-carousel-viewport {
+  position: relative;
+  overflow: hidden;
+  padding: 6px 0;
+}
+
+.svc-carousel-track {
+  display: flex;
+  transition: transform 0.5s cubic-bezier(0.64, 0.55, 0.34, 0.98);
+  will-change: transform;
+}
+
+.svc-carousel-slide {
+  flex-shrink: 0;
+  padding: 0 12px;
+  box-sizing: border-box;
+  transform: scale(0.86);
+  opacity: 0.4;
+  transition:
+    transform 0.4s ease,
+    opacity 0.4s ease;
+}
+
+.svc-carousel-slide.is-active {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.svc-carousel-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 40px 36px;
+  min-height: 220px;
+  background: radial-gradient(
+    120% 160% at 85% 10%,
+    var(--teal-glow),
+    var(--black) 70%
+  );
+}
+
+.svc-carousel-num {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.svc-carousel-tag {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold-soft);
+  margin: 10px 0 14px;
+}
+
+.svc-carousel-card h4 {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: clamp(19px, 2.2vw, 24px);
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+
+.svc-carousel-copy {
+  font-size: 13.5px;
+  line-height: 1.65;
+  color: var(--muted);
+  max-width: 480px;
+}
+
+/* ---- arrows ---- */
+.svc-carousel-arrow {
+  position: absolute;
+  top: 50%;
+  translate: 0 -50%;
+  z-index: 2;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: rgba(10, 18, 16, 0.6);
+  color: var(--ink);
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+.svc-carousel-arrow:hover {
+  border-color: var(--gold-soft);
+  color: var(--gold-soft);
+}
+.svc-carousel-arrow--left {
+  left: 4px;
+}
+.svc-carousel-arrow--right {
+  right: 4px;
+}
+
+/* ---- bullets ---- */
+.svc-carousel-bullets {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 26px;
+}
+
+.svc-carousel-bullet {
+  background: transparent;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  line-height: 0;
+}
+
+.svc-bullet-track {
+  fill: none;
+  stroke: var(--line);
+  stroke-width: 1;
+}
+
+.svc-bullet-progress {
+  fill: none;
+  stroke: var(--gold-soft);
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  transform-origin: 8px 8px;
+  transform: rotate(-90deg);
+  stroke-dashoffset: 0;
+  animation: svc-ring-fill 6s linear forwards;
+}
+.svc-bullet-progress.is-paused {
+  animation-play-state: paused;
+}
+
+@keyframes svc-ring-fill {
+  from {
+    stroke-dashoffset: var(--circ, 41);
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@media (max-width: 700px) {
+  .svc-carousel-arrow {
+    display: none;
+  }
+  .svc-carousel-card {
+    padding: 30px 24px;
+    min-height: 190px;
+  }
+}

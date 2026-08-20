@@ -21,7 +21,7 @@ export default function App(){
         <Packages />
         <Services />
         <About />
-        <Portfolio />
+       
       </main>
       <Footer />
       <CookieConsent />

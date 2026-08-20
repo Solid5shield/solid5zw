@@ -6,6 +6,7 @@ import { IconInstagram, IconLinkedIn, IconX } from './icons.jsx'
 import registerImg from '../assets/register.jpeg'
 import webDevImg from '../assets/Software_developer.webp'
 import mobileAppImg from '../assets/mobile-app.jpeg'
+import bgVideo from '../assets/home-hero-primary-background-video.mp4'
 import Constellation from './Constellation.jsx'
 import './Hero.css'
 
@@ -66,6 +67,15 @@ export default function Hero(){
           alt=""
           aria-hidden="true"
         />
+        <video
+          className="hero-bg-video"
+          src={bgVideo}
+          autoPlay
+          muted
+          loop
+          playsInline
+          aria-hidden="true"
+        />
         <div className="hero-bg-overlay" />
       </div>
  
@@ -104,22 +114,8 @@ export default function Hero(){
       </div>
 
       <div className="hero-footer container">
-        <ul className="hero-quicklinks">
-          {QUICK_LINKS.map(q => (
-            <li key={q}><a href={`#${q.toLowerCase()}`}>+ {q.toUpperCase()}</a></li>
-          ))}
-        </ul>
-
-        <div className="hero-dots">
-          {SLIDES.map((_, i) => (
-            <button
-              key={i}
-              className={i === index ? 'is-active' : ''}
-              onClick={() => setIndex(i)}
-              aria-label={`Go to slide ${i + 1}`}
-            />
-          ))}
-        </div>
+        
+       
 
         <div className="hero-neighbors">
           <button onClick={() => go(-1)}>‹ {slide.prevLabel}</button>

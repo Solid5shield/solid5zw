@@ -13,6 +13,8 @@
   position: absolute;
   inset: 0;
   z-index: 0;
+  mask-image: linear-gradient(to bottom, black 0%, black 75%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 0%, black 75%, transparent 100%);
 }
 .hero-bg-image {
   width: 100%;
@@ -28,7 +30,7 @@
   }
   to {
     opacity: 1;
-  }
+  } 
 }
 
 .hero-bg-overlay {
@@ -172,7 +174,7 @@
 .hero-footer {
   position: relative;
   z-index: 3;
-  border-top: 1px solid var(--line);
+  border-top: 0px solid var(--line);
   padding: 20px 48px;
   display: flex;
   align-items: center;
