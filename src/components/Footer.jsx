@@ -13,7 +13,7 @@ export default function Footer(){
 
         <div className="footer-contact">
           <p className="footer-label">GET IN TOUCH</p>
-          <p>+263 77 610 975</p>
+          <p>+263 77 610 9275</p>
           <p>info@solid5.co.zw</p>
           <p>Harare, Zimbabwe</p>
         </div>

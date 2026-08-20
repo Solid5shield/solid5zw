@@ -37,7 +37,7 @@ export default function About(){
           </div>
           <div className="about-panel-info">
             <p className="about-panel-label">SOLID5 AGENCY</p>
-            <p>+263 77 610 975</p>
+            <p>+263 77 610 9275</p>
             <p>info@solid5.co.zw</p>
             <p>Harare, Zimbabwe</p>
           </div>
