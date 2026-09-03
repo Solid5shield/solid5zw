@@ -4,13 +4,15 @@ import Packages from './components/Packages.jsx'
 import Services from './components/Services.jsx'
 import About from './components/About.jsx'
 import Portfolio from './components/Portfolio.jsx'
+import StarlinkSection from './components/StarlinkSection.jsx'
 import Footer from './components/Footer.jsx'
 import CookieConsent from './components/CookieConsent.jsx'
 import SEO from './components/SEO'
+
 export default function App(){
   return (
     <>
-    <SEO
+      <SEO
         title="Company Registration, Web & App Development in Zimbabwe"
         description="CIPZ company registration, web development, mobile apps, and UI/UX design — one team, start to finish. Based in Zimbabwe, serving clients locally and abroad."
         path="/"
@@ -18,10 +20,10 @@ export default function App(){
       <Navbar />
       <main>
         <Hero />
+        <StarlinkSection />
         <Packages />
         <Services />
         <About />
-       
       </main>
       <Footer />
       <CookieConsent />

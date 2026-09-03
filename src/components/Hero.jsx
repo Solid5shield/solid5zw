@@ -7,6 +7,7 @@ import registerImg from '../assets/register.jpeg'
 import webDevImg from '../assets/Software_developer.webp'
 import mobileAppImg from '../assets/mobile-app.jpeg'
 import bgVideo from '../assets/home-hero-primary-background-video.mp4'
+import starlinkImg from '../assets/starlink.jpg'
 import Constellation from './Constellation.jsx'
 import './Hero.css'
 
@@ -18,7 +19,7 @@ const SLIDES = [
     copy: 'We handle your CIPZ name search, registration, and founding documents — start to finish — so you don\u2019t have to navigate the portal yourself.',
     priceLabel: 'PACKAGES FROM',
     price: '$125',
-    prevLabel: 'Mobile App Development',
+    prevLabel: 'Starlink Installation',
     nextLabel: 'Web Development',
     cta: 'REGISTER MY COMPANY',
     lottie: 'https://lottie.host/af83ffeb-3a73-4f6b-85b3-1729dd2aadce/K2wZD99FFZ.lottie',
@@ -42,11 +43,22 @@ const SLIDES = [
     priceLabel: 'STARTING FROM',
     price: '$900',
     prevLabel: 'Web Development',
-    nextLabel: 'Company Registration',
+    nextLabel: 'Starlink Installation',
     lottie: 'https://lottie.host/YOUR-MOBILEAPP-ANIMATION.lottie',
   },
+  {
+    image: starlinkImg,
+    eyebrow: 'Authorised Dealer · On-site Install',
+    title: ['STARLINK SALES', '& INSTALLATION'],
+    copy: 'Skip the load-shedding and unreliable fibre — we supply genuine Starlink kits and handle the full install, from dish alignment to WiFi setup, anywhere in Zimbabwe.',
+    priceLabel: 'INSTALLATION FROM',
+    price: '$60',
+    prevLabel: 'Mobile App Development',
+    nextLabel: 'Company Registration',
+    cta: 'GET STARLINK INSTALLED',
+    lottie: 'https://lottie.host/YOUR-STARLINK-ANIMATION.lottie',
+  },
 ]
-
 const QUICK_LINKS = ['Packages', 'Process', 'Work', 'Support']
 
 export default function Hero(){

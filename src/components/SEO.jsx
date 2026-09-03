@@ -1,4 +1,3 @@
-
 import { Helmet } from 'react-helmet-async'
 
 export default function SEO({
@@ -7,8 +6,8 @@ export default function SEO({
   path = '',
   image = '/og-image.jpg',
 }) {
-  const siteName = 'Solid5 Agency' 
-  const domain = 'https://solid5.co.zw' 
+  const siteName = 'Solid5 Agency'
+  const domain = 'https://solid5.co.zw'
   const fullTitle = `${title} | ${siteName}`
   const url = `${domain}${path}`
 
@@ -36,15 +35,16 @@ export default function SEO({
     {JSON.stringify({
       '@context': 'https://schema.org',
       '@type': 'ProfessionalService',
-      name: 'Your Company Name',
-      description: 'Company registration, web development, mobile app development, and UI/UX design.',
-      url: 'https://solid5.co.zw',
+      name: siteName,
+      description: 'Company registration, web development, mobile app development, UI/UX design, and Starlink sales & installation.',
+      url: domain,
       areaServed: 'ZW',
       makesOffer: [
         { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'CIPZ Company Registration' } },
         { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Web Development' } },
         { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Mobile App Development' } },
         { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'UI / UX Design' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Starlink Sales & Installation' } },
       ],
     })}
   </script>
