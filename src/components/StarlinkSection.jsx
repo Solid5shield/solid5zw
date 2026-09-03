@@ -78,7 +78,7 @@ export default function StarlinkSection(){
           <p className="starlink-eyebrow">Starlink Sales &amp; Installation</p>
           <h2 className="starlink-title">Internet that doesn't care about load-shedding</h2>
           <p className="starlink-lede">
-            We're an authorised Starlink reseller and installer, supplying genuine hardware and
+            We're an authorised Starlink dealer and installer, supplying genuine hardware and
             handling setup end to end — homes, offices, farms, and lodges anywhere in Zimbabwe,
             fibre or no fibre.
           </p>
