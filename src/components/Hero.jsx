@@ -60,17 +60,17 @@ const SLIDES = [
     cta: "GET STARLINK INSTALLED",
     lottie: "https://lottie.host/YOUR-STARLINK-ANIMATION.lottie",
   },
-  {
+    {
     image: smartHomeImg,
-    eyebrow: "Lighting · Security · Climate",
-    title: ["SMART HOME", "AUTOMATION"],
-    copy: "Turn your house into a smart home — automated lighting, security cameras, smart locks, and climate control, all controllable from your phone.",
-    priceLabel: "PACKAGES FROM",
-    price: "$200",
-    prevLabel: "Starlink Installation",
-    nextLabel: "Company Registration",
-    cta: "AUTOMATE MY HOME",
-    lottie: "https://lottie.host/YOUR-SMARTHOME-ANIMATION.lottie",
+    eyebrow: 'Lighting · Security · Climate',
+    title: ['SMART HOME', 'AUTOMATION'],
+    copy: 'Turn your house into a smart home — automated lighting, security cameras, smart locks, and climate control, all controllable from your phone.',
+    priceLabel: 'PACKAGES FROM',
+    price: '$250',
+    prevLabel: 'Starlink Installation',
+    nextLabel: 'Company Registration',
+    cta: 'AUTOMATE MY HOME',
+    lottie: 'https://lottie.host/YOUR-SMARTHOME-ANIMATION.lottie',
   },
 ];
 const QUICK_LINKS = ["Packages", "Process", "Work", "Support"];

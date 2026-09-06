@@ -19,20 +19,20 @@ const FEATURES = [
 const PACKAGES = [
   {
     name: 'Starter',
-    price: '$200',
+    price: '$250',
     tagline: 'A few rooms, done right',
     features: ['Up to 5 smart devices', 'Lighting & plugs', 'Mobile app setup', '1 voice assistant'],
   },
   {
     name: 'Essential',
-    price: '$450',
+    price: '$600',
     tagline: 'Whole-home basics covered',
     highlighted: true,
     features: ['Up to 15 smart devices', 'Lighting, locks & cameras', 'Automation routines', 'Voice + app control', 'On-site installation'],
   },
   {
     name: 'Full Home',
-    price: '$900',
+    price: '$1,800',
     tagline: 'Complete automation, top to bottom',
     features: ['Unlimited devices', 'Security, climate & energy', 'Custom automation scenes', 'Backup power integration', 'Priority support'],
   },
