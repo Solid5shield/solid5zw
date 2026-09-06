@@ -1,0 +1,119 @@
+.smart-home {
+  padding: 6rem 0;
+  background: #0b0f14;
+  color: #fff;
+}
+
+.smart-home-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.smart-home-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.85rem;
+  color: #7fdc7f;
+  margin-bottom: 0.5rem;
+}
+
+.smart-home-title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.smart-home-copy {
+  color: #c7c7c7;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.smart-home-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.smart-home-features li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.smart-home-cta {
+  display: inline-block;
+  padding: 0.9rem 1.75rem;
+  background: #7fdc7f;
+  color: #0b0f14;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.smart-home-image img {
+  width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.smart-home-packages {
+  margin-top: 4rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.smart-home-package {
+  background: #131a22;
+  border: 1px solid #232d38;
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+}
+
+.smart-home-package.is-highlighted {
+  border-color: #7fdc7f;
+  transform: scale(1.03);
+}
+
+.smart-home-package-tagline {
+  color: #999;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.smart-home-package-price {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+}
+
+.smart-home-package ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem;
+  color: #c7c7c7;
+  display: grid;
+  gap: 0.6rem;
+}
+
+.smart-home-package-cta {
+  display: inline-block;
+  padding: 0.7rem 1.5rem;
+  border: 1px solid #7fdc7f;
+  color: #7fdc7f;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  .smart-home-inner,
+  .smart-home-packages {
+    grid-template-columns: 1fr;
+  }
+}

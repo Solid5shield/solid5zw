@@ -5,6 +5,7 @@ import Services from './components/Services.jsx'
 import About from './components/About.jsx'
 import Portfolio from './components/Portfolio.jsx'
 import StarlinkSection from './components/StarlinkSection.jsx'
+import SmartHomeSection from './components/SmartHomeSection.jsx'
 import Footer from './components/Footer.jsx'
 import CookieConsent from './components/CookieConsent.jsx'
 import SEO from './components/SEO'
@@ -20,8 +21,9 @@ export default function App(){
       <Navbar />
       <main>
         <Hero />
-        <StarlinkSection />
         <Packages />
+        <StarlinkSection />
+        <SmartHomeSection />
         <Services />
         <About />
       </main>
