@@ -67,7 +67,7 @@ export default function Portfolio(){
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
-      <div className="container work-top">
+      <div className="container work-top reveal">
         <ul className="work-features">
           <li>+ TOP PROJECTS</li>
           <li>+ WEB</li>
@@ -76,7 +76,7 @@ export default function Portfolio(){
         </ul>
       </div>
 
-      <div className="work-stage">
+      <div className="work-stage reveal reveal--scale">
         <button className="work-arrow work-arrow--left" onClick={() => go(-1)} aria-label="Previous project">‹</button>
 
         {SLOTS.map(({ offset, className }) => {

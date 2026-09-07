@@ -21,9 +21,20 @@
   top: 50%;
   right: 0;
   width: 580px;
-  height: 100%;
+  height: 480px;
+  transform: translateY(-50%);
   pointer-events: none;
   z-index: 2;
+  opacity: 0.85;
+}
+.packages-constellation .canvas-wrap{
+  width: 100%;
+  height: 100%;
+}
+.packages-constellation canvas{
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
 .packages > .container{
@@ -67,12 +78,12 @@
   background: rgba(10,18,16,0.5);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  transition: border-color 0.2s ease, transform 0.2s ease, background 0.2s ease;
+  transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.3s ease;
 }
 .package-card:hover{
-  border-color: var(--gold-soft);
-  transform: translateY(-4px);
-  background: rgba(10,18,16,0.62);
+  border-color: var(--neon-teal-soft);
+  background: rgba(10,18,16,0.66);
+  box-shadow: var(--glow-teal), 0 20px 40px rgba(0,0,0,0.45);
 }
 
 @media (max-width: 1300px){
@@ -168,7 +179,7 @@
   text-shadow: 0 1px 4px rgba(0,0,0,0.9);
 }
 
-.packages-cta{
+.packages-cta {
   display: inline-block;
   padding: 14px 30px;
   border: 1px solid var(--gold-soft);
@@ -177,14 +188,20 @@
   font-weight: 600;
   font-size: 12px;
   letter-spacing: 0.1em;
-  border-radius: 2px;
+  border-radius: 4px;
   background: rgba(10,18,16,0.55);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   text-shadow: 0 1px 6px rgba(0,0,0,0.7);
-  transition: background .15s ease, color .15s ease;
+  transition: background .15s ease, color .15s ease, box-shadow .2s ease, transform .15s ease;
 }
-.packages-cta:hover{ background: var(--gold-soft); color: var(--black); text-shadow: none; }
+.packages-cta:hover{
+  background: var(--gold-soft);
+  color: var(--black);
+  text-shadow: none;
+  box-shadow: var(--glow-gold);
+  transform: translateY(-2px);
+}
 
 @media (max-width: 600px){
   .package-card{ padding: 26px 22px 24px; }

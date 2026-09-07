@@ -1,5 +1,6 @@
 import './Packages.css'
 import Constellation from './Constellation.jsx'
+import TiltCard from './TiltCard.jsx'
 import bgVideo from '../assets/home-hero-primary-background-video.mp4'
 import mockupImg from '../assets/services-mockup.webp'
 const PACKAGES = [
@@ -68,15 +69,21 @@ export default function Packages(){
         aria-hidden="true"
       />
 
-      <div className="packages-constellation" aria-hidden="true"></div>
+      <div className="packages-constellation" aria-hidden="true">
+        <Constellation />
+      </div>
 
       <div className="container">
-        <p className="packages-eyebrow">CIPZ Company Registration</p>
-        <h2 className="packages-heading">Our Packages</h2>
+        <p className="packages-eyebrow reveal">CIPZ Company Registration</p>
+        <h2 className="packages-heading reveal">Our Packages</h2>
 
         <div className="packages-list">
-          {PACKAGES.map(p => (
-            <div className="package-card" key={p.name}>
+          {PACKAGES.map((p, i) => (
+            <TiltCard
+              className={`package-card reveal`}
+              key={p.name}
+              style={{ transitionDelay: `${i * 90}ms` }}
+            >
               <span className="package-index" aria-hidden="true">{p.index}</span>
               <div className={`package-icon package-icon--${p.color}`}>{p.icon}</div>
               <p className="package-name">
@@ -88,11 +95,11 @@ export default function Packages(){
                   <span className="package-tag" key={f}>{f}</span>
                 ))}
               </div>
-            </div>
+            </TiltCard>
           ))}
         </div>
 
-        <a href="#contact" className="packages-cta">GET STARTED — CIPZ REGISTRATION</a>
+        <a href="#contact" className="packages-cta btn-shine">GET STARTED — CIPZ REGISTRATION</a>
       </div>
     </section>
   )

@@ -1,4 +1,5 @@
 import smartHomeHeroImg from '../assets/smart-home.png' 
+import TiltCard from './TiltCard.jsx'
 import './SmartHomeSection.css'
 function IconCheck() {
   return (
@@ -42,7 +43,7 @@ export default function SmartHomeSection(){
   return (
     <section className="smart-home" id="smart-home">
       <div className="container smart-home-inner">
-        <div className="smart-home-intro">
+        <div className="smart-home-intro reveal">
           <p className="smart-home-eyebrow">Lighting · Security · Climate</p>
           <h2 className="smart-home-title">Smart Home Automation</h2>
           <p className="smart-home-copy">
@@ -60,18 +61,22 @@ export default function SmartHomeSection(){
             ))}
           </ul>
 
-          <a href="#contact" className="smart-home-cta">GET A FREE CONSULTATION</a>
+          <a href="#contact" className="smart-home-cta btn-shine">GET A FREE CONSULTATION</a>
         </div>
 
-        <div className="smart-home-image">
+        <div className="smart-home-image reveal reveal--right">
           <img src={smartHomeHeroImg} alt="Smart home automation setup" />
         </div>
       </div>
 
       <div className="container">
         <div className="smart-home-packages">
-          {PACKAGES.map(pkg => (
-            <div key={pkg.name} className={`smart-home-package${pkg.highlighted ? ' is-highlighted' : ''}`}>
+          {PACKAGES.map((pkg, i) => (
+            <TiltCard
+              key={pkg.name}
+              className={`smart-home-package reveal${pkg.highlighted ? ' is-highlighted' : ''}`}
+              style={{ transitionDelay: `${i * 90}ms` }}
+            >
               <h3>{pkg.name}</h3>
               <p className="smart-home-package-tagline">{pkg.tagline}</p>
               <div className="smart-home-package-price">{pkg.price}</div>
@@ -79,7 +84,7 @@ export default function SmartHomeSection(){
                 {pkg.features.map(f => <li key={f}>{f}</li>)}
               </ul>
               <a href="#contact" className="smart-home-package-cta">Choose {pkg.name}</a>
-            </div>
+            </TiltCard>
           ))}
         </div>
       </div>

@@ -1,3 +1,4 @@
+import TiltCard from './TiltCard.jsx'
 import './StarlinkSection.css'
 
 const PLANS = [
@@ -74,7 +75,7 @@ export default function StarlinkSection(){
   return (
     <section className="starlink" id="starlink">
       <div className="container starlink-inner">
-        <div className="starlink-header">
+        <div className="starlink-header reveal">
           <p className="starlink-eyebrow">Starlink Sales &amp; Installation</p>
           <h2 className="starlink-title">Internet that doesn't care about load-shedding</h2>
           <p className="starlink-lede">
@@ -85,8 +86,12 @@ export default function StarlinkSection(){
         </div>
 
         <div className="starlink-plans">
-          {PLANS.map(plan => (
-            <div key={plan.name} className={`starlink-plan${plan.highlight ? ' is-highlight' : ''}`}>
+          {PLANS.map((plan, i) => (
+            <TiltCard
+              key={plan.name}
+              className={`starlink-plan reveal${plan.highlight ? ' is-highlight' : ''}`}
+              style={{ transitionDelay: `${i * 90}ms` }}
+            >
               <div className="starlink-plan-head">
                 <h3>{plan.name}</h3>
                 <p className="starlink-plan-fit">{plan.fit}</p>
@@ -101,12 +106,12 @@ export default function StarlinkSection(){
                   <li key={f}><CheckIcon /><span>{f}</span></li>
                 ))}
               </ul>
-              <a href="#contact" className="starlink-plan-cta">Get a quote</a>
-            </div>
+              <a href="#contact" className="starlink-plan-cta btn-shine">Get a quote</a>
+            </TiltCard>
           ))}
         </div>
 
-        <div className="starlink-process">
+        <div className="starlink-process reveal">
           <h3 className="starlink-process-title">How installation works</h3>
           <ol className="starlink-steps">
             {STEPS.map((step, i) => (
@@ -126,9 +131,9 @@ export default function StarlinkSection(){
           </p>
         </div>
 
-        <div className="starlink-footer">
+        <div className="starlink-footer reveal">
           <p>Most installs are completed within a day of the site visit, generator or solar compatible.</p>
-          <a href="#contact" className="starlink-footer-cta">Book a site visit</a>
+          <a href="#contact" className="starlink-footer-cta btn-shine">Book a site visit</a>
         </div>
       </div>
     </section>

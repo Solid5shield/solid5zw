@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import CookieSettingsButton from "./CookieSettingsButton.jsx";
 import CookieConsent from "./CookieConsent.jsx";
@@ -10,7 +10,10 @@ import bgVideo from "../assets/home-hero-primary-background-video.mp4";
 import starlinkImg from "../assets/starlink.jpg";
 import smartHomeImg from "../assets/smart-home.png"; // TODO: add this asset
 import Constellation from "./Constellation.jsx";
+import HeroParticles from "./HeroParticles.jsx";
 import "./Hero.css";
+
+const AUTOPLAY_MS = 6000;
 
 const SLIDES = [
   {
@@ -60,17 +63,17 @@ const SLIDES = [
     cta: "GET STARLINK INSTALLED",
     lottie: "https://lottie.host/YOUR-STARLINK-ANIMATION.lottie",
   },
-    {
+  {
     image: smartHomeImg,
-    eyebrow: 'Lighting · Security · Climate',
-    title: ['SMART HOME', 'AUTOMATION'],
-    copy: 'Turn your house into a smart home — automated lighting, security cameras, smart locks, and climate control, all controllable from your phone.',
-    priceLabel: 'PACKAGES FROM',
-    price: '$250',
-    prevLabel: 'Starlink Installation',
-    nextLabel: 'Company Registration',
-    cta: 'AUTOMATE MY HOME',
-    lottie: 'https://lottie.host/YOUR-SMARTHOME-ANIMATION.lottie',
+    eyebrow: "Lighting · Security · Climate",
+    title: ["SMART HOME", "AUTOMATION"],
+    copy: "Turn your house into a smart home — automated lighting, security cameras, smart locks, and climate control, all controllable from your phone.",
+    priceLabel: "PACKAGES FROM",
+    price: "$250",
+    prevLabel: "Starlink Installation",
+    nextLabel: "Company Registration",
+    cta: "AUTOMATE MY HOME",
+    lottie: "https://lottie.host/YOUR-SMARTHOME-ANIMATION.lottie",
   },
 ];
 const QUICK_LINKS = ["Packages", "Process", "Work", "Support"];
@@ -79,9 +82,18 @@ export default function Hero() {
   const [index, setIndex] = useState(0);
   const slide = SLIDES[index];
   const [cookiesOpen, setCookiesOpen] = useState(false);
+
   const go = (dir) => {
     setIndex((i) => (i + dir + SLIDES.length) % SLIDES.length);
   };
+
+  const goTo = (i) => setIndex(i);
+
+  // Autoplay: advance to the next slide once the active dot's ring completes.
+  useEffect(() => {
+    const timer = setTimeout(() => go(1), AUTOPLAY_MS);
+    return () => clearTimeout(timer);
+  }, [index]);
 
   return (
     <section className="hero" id="top">
@@ -103,9 +115,10 @@ export default function Hero() {
           aria-hidden="true"
         />
         <div className="hero-bg-overlay" />
+        <HeroParticles />
       </div>
 
-      <div className="hero-social">
+           <div className="hero-social">
         <a href="#" aria-label="Instagram">
           <IconInstagram />
         </a>
@@ -115,6 +128,34 @@ export default function Hero() {
         <a href="#" aria-label="X / Twitter">
           <IconX />
         </a>
+
+        <div className="hero-dots hero-dots--vertical">
+          {SLIDES.map((s, i) => (
+            <button
+              key={s.title.join("-")}
+              className={`hero-dot ${i === index ? "is-active" : ""}`}
+              onClick={() => goTo(i)}
+              aria-label={`Go to ${s.title.join(" ")} slide`}
+            >
+              <span className="hero-dot-core" />
+              {i === index && (
+                <svg
+                  key={index}
+                  className="hero-dot-progress"
+                  viewBox="0 0 20 20"
+                >
+                  <circle
+                    cx="10"
+                    cy="10"
+                    r="8.5"
+                    className="hero-dot-progress-circle"
+                    style={{ animationDuration: `${AUTOPLAY_MS}ms` }}
+                  />
+                </svg>
+              )}
+            </button>
+          ))}
+        </div>
       </div>
       <CookieSettingsButton
         isOpen={cookiesOpen}
@@ -124,20 +165,6 @@ export default function Hero() {
         isOpen={cookiesOpen}
         onClose={() => setCookiesOpen(false)}
       />
-      <button
-        className="hero-arrow hero-arrow--left"
-        onClick={() => go(-1)}
-        aria-label="Previous slide"
-      >
-        ‹
-      </button>
-      <button
-        className="hero-arrow hero-arrow--right"
-        onClick={() => go(1)}
-        aria-label="Next slide"
-      >
-        ›
-      </button>
 
       <div className="hero-body container">
         <div className="hero-copy">
@@ -153,18 +180,13 @@ export default function Hero() {
             <span className="hero-price-value">{slide.price}</span>
           </div>
 
-          <a href="#contact" className="hero-cta">
+          <a href="#contact" className="hero-cta btn-shine">
             {slide.cta || "START A PROJECT"}
           </a>
         </div>
       </div>
 
-      <div className="hero-footer container">
-        <div className="hero-neighbors">
-          <button onClick={() => go(-1)}>‹ {slide.prevLabel}</button>
-          <button onClick={() => go(1)}>{slide.nextLabel} ›</button>
-        </div>
-      </div>
+     
     </section>
   );
 }

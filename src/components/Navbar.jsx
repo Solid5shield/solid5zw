@@ -1,13 +1,21 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './Navbar.css'
 import logo from '../assets/solid-5-white.svg'
 const LINKS = ['Packages', 'Services', 'Work', 'Contact']
 
 export default function Navbar(){
   const [open, setOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
   return (
-    <header className="nav">
+    <header className={`nav ${scrolled ? 'is-scrolled' : ''}`}>
       <div className="nav-inner container">
         <button
           className="nav-burger"

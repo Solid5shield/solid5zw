@@ -1,7 +1,16 @@
 .footer{
   background: var(--teal-1);
   padding: 64px 0 28px;
-  border-top: 1px solid var(--line);
+  border-top: 1px solid var(--glass-border);
+  position: relative;
+  overflow: hidden;
+}
+.footer::before{
+  content: "";
+  position: absolute;
+  top: -1px; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--neon-teal-soft), var(--gold-soft), transparent);
 }
 
 .footer-inner{

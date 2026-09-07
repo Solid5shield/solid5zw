@@ -9,9 +9,9 @@ export default function About(){
       </div>
 
       <div className="about-body container">
-        <h2 className="about-heading">ABOUT<br/>US.</h2>
+        <h2 className="about-heading reveal">ABOUT<br/>US.</h2>
 
-        <p className="about-copy">
+        <p className="about-copy reveal">
           <strong>Solid5</strong> is an authorised CIPZ registration agent
           based in Harare, helping founders across Zimbabwe get their
           businesses registered correctly the first time — from name
@@ -19,7 +19,7 @@ export default function About(){
           your behalf, no queues, no confusing forms, no guesswork.
         </p>
 
-        <p className="about-copy">
+        <p className="about-copy reveal">
           We're also a software studio, building websites, web platforms,
           and mobile applications for businesses that need work shipped
           properly the first time. Whether you're just registering your
@@ -27,7 +27,7 @@ export default function About(){
           one point of contact.
         </p>
 
-        <div className="about-panel">
+        <div className="about-panel reveal">
           <div className="about-panel-visual">
             <img
               className="about-panel-image"

@@ -159,11 +159,11 @@ export default function Services() {
       />
 
       <div className="container">
-        <p className="services-eyebrow">What we do best</p>
-        <h2 className="services-heading">What makes us different?</h2>
+        <p className="services-eyebrow reveal">What we do best</p>
+        <h2 className="services-heading reveal">What makes us different?</h2>
 
         <nav
-          className="services-filters"
+          className="services-filters reveal"
           aria-label="Filter services by category"
         >
           {CATEGORIES.map((cat, i) => (
