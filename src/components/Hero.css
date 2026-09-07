@@ -110,7 +110,7 @@
 .hero-title {
   font-family: "Marcellus", "EB Garamond", var(--display), serif;
   font-weight: 400;
-  font-size: clamp(48px, 4vw, 52px);
+  font-size: clamp(38px, 4vw, 52px);
   line-height: 1.25;
   letter-spacing: 0.22em;
   text-transform: uppercase;
