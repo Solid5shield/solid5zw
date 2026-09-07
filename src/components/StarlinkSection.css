@@ -1,13 +1,36 @@
 .starlink {
   position: relative;
-  background: var(--black);
-  padding: 96px 0 100px;
-  border-top: 1px solid var(--line);
+  overflow: visible; 
+}
+.starlink-video-bleed {
+  position: absolute;
+  top: -220px;                
+  left: 0;
+  right: 0;
+  height: 420px;                
+  z-index: 1;                  
+  overflow: hidden;
+  pointer-events: none;
+  mask-image: linear-gradient(to bottom, transparent 0%, black 40%, black 65%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 40%, black 65%, transparent 100%);
 }
 
+.starlink-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.starlink > .container {
+  position: relative;
+  align-items: center;
+  z-index: 2;
+}
 .starlink-inner {
   display: flex;
   flex-direction: column;
+  text-align: center;
   gap: 64px;
 }
 
@@ -25,12 +48,13 @@
 }
 
 .starlink-title {
-  font-family: var(--display);
-  font-weight: 400;
-  font-size: clamp(28px, 3.2vw, 40px);
-  line-height: 1.15;
+ font-family: var(--display);
+  font-weight: 600;
+  font-size: clamp(28px, 3.4vw, 38px);
+  margin-bottom: 46px;
   color: var(--ink);
-  margin-bottom: 18px;
+  letter-spacing: 0.1em;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.9), 0 1px 4px rgba(0,0,0,0.95);
 }
 
 .starlink-lede {

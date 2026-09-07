@@ -36,9 +36,13 @@
   height: 100%;
   display: block;
 }
-
+.packages-video-bleed {
+  mask-image: linear-gradient(to bottom, transparent 0%, black 35%, black 75%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 35%, black 75%, transparent 100%);
+}
 .packages > .container{
   position: relative;
+  text-align: center;
   z-index: 3;
 }
 

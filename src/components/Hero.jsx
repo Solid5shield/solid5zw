@@ -8,7 +8,7 @@ import webDevImg from "../assets/Software_developer.webp";
 import mobileAppImg from "../assets/mobile-app.jpeg";
 import bgVideo from "../assets/home-hero-primary-background-video.mp4";
 import starlinkImg from "../assets/starlink.jpg";
-import smartHomeImg from "../assets/smart-home.png"; // TODO: add this asset
+import smartHomeImg from "../assets/smart-home.jpg"; // TODO: add this asset
 import Constellation from "./Constellation.jsx";
 import HeroParticles from "./HeroParticles.jsx";
 import "./Hero.css";
@@ -185,8 +185,18 @@ export default function Hero() {
           </a>
         </div>
       </div>
-
-     
+      <a href="#packages" className="hero-scrolldown" aria-label="Scroll down">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M6 9l6 6 6-6"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </a>
     </section>
   );
 }
+     

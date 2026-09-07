@@ -70,7 +70,7 @@ export default function Packages(){
       />
 
       <div className="packages-constellation" aria-hidden="true">
-        <Constellation />
+      
       </div>
 
       <div className="container">

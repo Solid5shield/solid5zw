@@ -1,4 +1,5 @@
 import TiltCard from './TiltCard.jsx'
+import bgVideo from '../assets/home-hero-primary-background-video.mp4'
 import './StarlinkSection.css'
 
 const PLANS = [
@@ -74,6 +75,16 @@ function CheckIcon(){
 export default function StarlinkSection(){
   return (
     <section className="starlink" id="starlink">
+       <div className="starlink-video-bleed" aria-hidden="true">
+        <video
+          className="starlink-video"
+          src={bgVideo}
+          autoPlay
+          muted
+          loop
+          playsInline
+        />
+      </div>
       <div className="container starlink-inner">
         <div className="starlink-header reveal">
           <p className="starlink-eyebrow">Starlink Sales &amp; Installation</p>
@@ -111,28 +122,10 @@ export default function StarlinkSection(){
           ))}
         </div>
 
-        <div className="starlink-process reveal">
-          <h3 className="starlink-process-title">How installation works</h3>
-          <ol className="starlink-steps">
-            {STEPS.map((step, i) => (
-              <li key={step.title} className="starlink-step">
-                <span className="starlink-step-number">{String(i + 1).padStart(2, '0')}</span>
-                <div>
-                  <h4>{step.title}</h4>
-                  <p>{step.copy}</p>
-                </div>
-              </li>
-            ))}
-          </ol>
-          <p className="starlink-process-note">
-            Every job goes out with a full site-survey kit — drill, level, stud finder, sealant, and
-            proper mounting hardware for roof, wall, or pole. We run the sky-obstruction check before
-            drilling anything, so you're not left with a dish that can't hold a signal.
-          </p>
-        </div>
+       
 
         <div className="starlink-footer reveal">
-          <p>Most installs are completed within a day of the site visit, generator or solar compatible.</p>
+         
           <a href="#contact" className="starlink-footer-cta btn-shine">Book a site visit</a>
         </div>
       </div>
